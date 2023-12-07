@@ -406,15 +406,15 @@
   function filterTest() {
     const nums = [1,2,3,4,5,6,7,8,9,10];
 
-    const evens = nums.filter(function(elem, index, arr) {
+    const evens = nums.filter(function(elem) {
       return elem % 2 == 0;
     });
     console.log(evens);
     area11.innerHTML = `짝수만 추출 : ${evens}<br>`;
 
     const arr = [];
-    for(let i=0; i<100; i++) {
-      arr.push(i+1);
+    for(let i=1; i<=100; i++) {
+      arr.push(i);
     }
     console.log(arr);
 
