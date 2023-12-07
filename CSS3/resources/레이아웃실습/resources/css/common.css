@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Hahmlet&display=swap');
+*{
+    color: black; 
+    font-family: Hahmlet; 
+    font-size: 14px;
+    margin: 0 auto;
+}
+a{text-decoration: none;}

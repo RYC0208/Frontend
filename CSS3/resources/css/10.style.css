@@ -1,0 +1,32 @@
+table{ /*테이블 전체 */
+    border:1px solid;
+
+    border-collapse: separate; /*기본값*/
+    border-spacing: 20px 10px;
+    border-collapse: collapse;
+
+    width: 600px;
+}
+
+thead, tfoot{
+    background-color: rgb(216, 216, 216);
+}
+
+tbody{
+    background-color: beige;
+}
+
+th, td{
+    width: 200px;
+    height: 100px;
+    padding: 10px;
+    text-align: center;/*글씨를 가운데로*/
+    vertical-align: bottom;/*테이블에서만 글씨를 옮길 수 있음 top/bottom/middle(기본값)*/
+    border: 1px dashed red;
+
+    word-break: break-all; /* 글자에 공백이 없어도 중간에 끊어서 내림*/
+}
+
+.borderTop{
+    border-top: 5px solid rgb(216, 12, 157);
+}
