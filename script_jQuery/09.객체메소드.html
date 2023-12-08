@@ -67,7 +67,6 @@
           area1.innerHTML += `나이 : ${this.age}<br>`;
         }
       }
-
       p1.fun1();
       p1.setAge(10);
       p2.fun1();
@@ -155,14 +154,14 @@
       // 덮어쓰기
       people.dream = "엄청부자";
       console.log(people);
-        
+
       // 메소드 추가
       people.toString = function() {
         return `name : ${this.name}<br>
                 hobby : ${this.hobby}<br>
                 dream : ${this.dream}<br>
                 age : ${this.age}`;
-      }      
+      }
       area3.innerHTML += people;
 
       // 객체의 속성 제거
