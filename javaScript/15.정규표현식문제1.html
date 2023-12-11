@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정규표현식 문제1</title>
+    <style>  
+    h1{
+        text-align: center;
+    }
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+    }
+    table {
+        border-collapse: collapse;
+    }
+    td {
+        padding: 10px;
+        text-align: right;
+
+    }
+    input {
+        margin: 5px;
+    }
+    button {
+        margin-top: 10px;
+    }fieldset{
+    width: 400px;
+    height: 500px;
+    
+    }</style>
+</head>
+<body>
+    
+    <form id="signupForm">
+        <h1>회원가입</h1>
+        <fieldset>
+        <table>
+            <tr>
+                <td>아이디:</td>
+                <td><input type="text" id="username" pattern="[a-zA-Z][a-zA-Z0-9]{3,11}" required title="첫글자는 영문이고 영문자, 숫자를 포함하여 4~12자 이어야 합니다."></td>
+            </tr>
+            <tr>
+                <td>비밀번호:</td>
+                <td><input type="password" id="password" required></td>
+            </tr>
+            <tr>
+                <td>비밀번호 확인:</td>
+                <td><input type="password" id="confirmPassword" required></td>
+            </tr>
+            <tr>
+                <td>이름:</td>
+                <td><input type="text" id="name" pattern="[가-힣]{2,}" required title="한글로 2글자 이상 입력하세요."></td>
+            </tr>
+            <tr>
+                <td>이메일:</td>
+                <td><input type="email" id="email" required></td>
+            </tr>
+            <tr>
+                <td>취미:</td>
+                <td><input type="text" id="hobby"></td>
+            </tr>
+            <tr>
+                <td>거주지:</td>
+                <td>
+                    <select id="location">
+                        <option value="서울">서울</option>
+                        <option value="경기도">경기도</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <button type="button" onclick="signup()">회원가입</button>
+                    <button type="button" onclick="cancel()">취소</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</fieldset>
+<script>
+    function signup() {
+        // 각 입력값을 가져오기
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const hobby = document.getElementById('hobby').value;
+        const location = document.getElementById('location').value;
+
+        // 간단한 유효성 검사
+        if (!/^[a-zA-Z][a-zA-Z0-9]{3,11}$/.test(username)) {
+            alert("아이디는 첫글자가 영문이고 영문자, 숫자를 포함하여 4~12자 이어야 합니다.");
+            return;
+        }
+
+        if (password !== confirmPassword) {
+            alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+            return;
+        }
+
+        if (!/^[가-힣]{2,}$/.test(name)) {
+            alert("이름은 한글로 2글자 이상 입력하세요.");
+            return;
+        }
+
+        if (!/\S+@\S+\.\S+/.test(email)) {
+            alert("이메일 형식이 올바르지 않습니다.");
+            return;
+        }
+
+        // 회원가입 성공 시 처리 (이 부분은 서버로 전송하거나 다른 로직으로 변경해야 합니다.)
+        alert("회원가입 성공!");
+    }
+
+    function cancel() {
+        // 취소 버튼 클릭 시 입력값 초기화
+        document.getElementById('signupForm').reset();
+    }
+</script>
+</body>
+</html>
